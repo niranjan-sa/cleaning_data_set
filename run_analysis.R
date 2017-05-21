@@ -67,10 +67,13 @@ final_names <- gsub("Acc", "acceleration", final_names)
 final_names <- gsub("Mag", "magnitude", final_names)
 final_names <- gsub("^t(.*)$", "\\1_time", final_names)
 final_names <- gsub("^f(.*)$", "\\1_frequency", final_names)
-
+final_names <- gsub("(acc)", "_\\1", final_names)
+final_names <- gsub("(Gyro|Jerk)", "_\\1", final_names)
 final_names <- gsub("BodyBody", "Body", final_names)
+final_names <- gsub("-", "_", final_names)
 
 ##assigning names to the features
+final_names <- tolower(final_names)
 names(final_data) <- final_names
 
 
